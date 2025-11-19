@@ -1,18 +1,56 @@
-# React + Vite
+# 📦 E-Commerce (React + Platzi Fake Store API)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and simple E-Commerce web application built using **React**, **Vite**, **TailwindCSS**, and the **Platzi Fake Store API**.  
+Users can **create an account**, **log in**, **browse products**, **search**, and **filter** by category and price.  
+(Add-to-Cart functionality will be added soon using **localStorage**.)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 👤 User Authentication
+- Create a new user using Platzi Fake Store API  
+- Login with email & password  
+- Receive an `access_token` for authentication  
+- Token is used for protected API calls
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### 🛍 Product Browsing
+- View all products  
+- Search products by title  
+- Filter by:
+  - **Category**
+  - **Minimum price**
+  - **Maximum price**
 
-Note: This will impact Vite dev & build performances.
+### 🛒 Cart (Coming Soon)
+- Add to cart  
+- Remove from cart  
+- Persistent cart using **localStorage**  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | React, Vite, TailwindCSS |
+| Routing | react-router-dom |
+| API | Platzi Fake Store API |
+| State Management | React Hooks |
+| Upcoming | localStorage Cart |
+
+---
+
+## 🔗 Platzi Fake Store API
+
+This project integrates the official **Platzi Fake Store API**.  
+Used endpoints include:
+
+- `POST /users` – User registration  
+- `POST /auth/login` – Login & receive access token  
+- `GET /products` – Fetch all products  
+- `GET /categories` – Fetch categories  
+
+---
+
+
