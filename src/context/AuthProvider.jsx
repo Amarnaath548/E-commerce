@@ -5,24 +5,25 @@ import { useNavigate } from "react-router-dom";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const login = async (credentail) => {
     const { data } = await axios.post(
       "https://api.escuelajs.co/api/v1/auth/login",
       credentail
     );
-    console.log(data)
+    console.log(data);
     localStorage.setItem("access_token", data.access_token);
     localStorage.setItem("refresh_token", data.refresh_token);
-    navigate('/')
+    navigate("/");
   };
 
-  const logout=()=>{
-    localStorage.removeItem("access_token")
-     localStorage.removeItem("refresh_token")
-     navigate('/login')
-  }
+  const logout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    setUser(null);
+    navigate("/login");
+  };
 
   useEffect(() => {
     const access_token = localStorage.getItem("access_token");
