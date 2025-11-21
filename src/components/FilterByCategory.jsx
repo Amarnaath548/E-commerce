@@ -8,7 +8,7 @@ const FilterByCategory = ({categoryId,setCategoryId}) => {
 
     if(error) <ErrorComponent error={error}/>
   return (
-   <div className="mt-4 p-4 bg-gray-50 rounded-xl shadow-inner border border-gray-200">
+   <div className="mt-4 p-4 bg-gray-50 rounded-xl shadow-inner border border-gray-200 w-fit">
       <h3 className="text-lg font-semibold mb-3 text-gray-700">Filter By Category</h3>
       {loading && <Loading data="Categories" />}
       <div className="space-y-2">

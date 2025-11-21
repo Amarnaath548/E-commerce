@@ -12,9 +12,9 @@ const FilterByPrice = ({ minPrice, setMinPrice, maxPrice, setMaxPrice }) => {
     setMaxPrice(value);
   };
   return (
-    <div className="mt-4 p-4 bg-gray-50 rounded-xl shadow-inner border border-gray-200 h-fit">
+    <div className="mt-4 p-4 bg-gray-50 rounded-xl shadow-inner border border-gray-200 h-fit w-fit">
       <h3 className="text-lg font-semibold mb-3 text-gray-700">Filter By Price Range ($)</h3>
-      <div className="flex space-x-4">
+      <div className=" space-x-4">
         <div className="flex flex-col flex-1">
           <label htmlFor="min-price" className="text-sm font-medium text-gray-500 mb-1">Min Price</label>
           <input

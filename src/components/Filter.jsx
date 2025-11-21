@@ -2,9 +2,10 @@ import FilterByCategory from "./FilterByCategory";
 import FilterByPrice from "./FilterByPrice";
 
 const Filter = ({minPrice, setMinPrice,maxPrice, setMaxPrice,categoryId,setCategoryId}) => {
-  
+    
   return (
-    <div className="grid md:grid-cols-2 gap-6">
+    // The grid-cols-1 (default) and md:grid-cols-2 ensures responsiveness here.
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4"> 
       <FilterByCategory categoryId={categoryId} setCategoryId={setCategoryId} />
       <FilterByPrice
         minPrice={minPrice}

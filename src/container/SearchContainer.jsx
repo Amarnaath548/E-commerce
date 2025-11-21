@@ -1,16 +1,18 @@
 import React, { useCallback, useState } from "react";
+// ... other imports ...
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
 import { useNavigate } from "react-router-dom";
 
 const SearchContainer = () => {
+  // ... state and handleSearch logic remains the same ...
+  // ... (omitted for brevity) ...
+
   const [search, setSearch] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
   const [categoryId, setCategoryId] = useState(0);
-  const [searchUrl, setSearchUrl] = useState(
-    "Perform a search to see the URL."
-  );
+  const [searchUrl, setSearchUrl] = useState("Perform a search to see the URL.");
   const [showFilter, setShowFilter] = useState(false);
   const navigate = useNavigate();
 
@@ -24,25 +26,21 @@ const SearchContainer = () => {
 
   const handleSearch = useCallback(() => {
     const params = [];
-
     if (search.trim()) {
       params.push(`title=${encodeURIComponent(search.trim())}`);
     }
-
-    if (minPrice > 0 && maxPrice > minPrice) {
+    if (minPrice >= 0 && maxPrice > minPrice) {
       const effectiveMin = Math.max(0, minPrice);
       const effectiveMax = Math.max(effectiveMin, maxPrice);
-
       if (effectiveMax > 0) {
+        console.log(effectiveMin,effectiveMax)
         params.push(`price_min=${effectiveMin}`);
         params.push(`price_max=${effectiveMax}`);
       }
     }
-
     if (categoryId > 0) {
       params.push(`categoryId=${categoryId}`);
     }
-
     if (params.length === 0) {
       const noFilterUrl = `/products`;
       setSearchUrl(noFilterUrl);
@@ -51,19 +49,18 @@ const SearchContainer = () => {
       initial();
       return;
     }
-
     const url = params.join("&");
     const fullUrl = `/products?${url}`;
-
     setSearchUrl(fullUrl);
     console.log("Simulated Navigation URL:", fullUrl, searchUrl);
-
     navigate(fullUrl);
     initial();
   }, [search, searchUrl, minPrice, maxPrice, categoryId, navigate]);
 
+
   return (
-    <div className="max-w-4xl mx-auto">
+    // Changed max-w-xl to w-full so it fills the width given by the Navbar parent
+    <div className="w-full mx-auto">
       <SearchBar
         search={search}
         setSearch={setSearch}
@@ -72,14 +69,18 @@ const SearchContainer = () => {
         showFilter={showFilter}
       />
       {showFilter && (
-        <Filter
-          minPrice={minPrice}
-          setMinPrice={setMinPrice}
-          maxPrice={maxPrice}
-          setMaxPrice={setMaxPrice}
-          categoryId={categoryId}
-          setCategoryId={setCategoryId}
-        />
+        // Added mt-3 and md:absolute md:top-[60px] md:z-10 to position the filter popover correctly 
+        // under the search bar on desktop, while still stacking on mobile.
+        <div className="mt-3 md:absolute md:top-[60px] md:z-10">
+            <Filter
+                minPrice={minPrice}
+                setMinPrice={setMinPrice}
+                maxPrice={maxPrice}
+                setMaxPrice={setMaxPrice}
+                categoryId={categoryId}
+                setCategoryId={setCategoryId}
+            />
+        </div>
       )}
     </div>
   );

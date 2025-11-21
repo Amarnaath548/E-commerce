@@ -8,25 +8,26 @@ function Login() {
     email: "",
     password: "",
   });
-  const [formError, setFormError] = useState({
-    email: "",
-    password: "",
-  });
+  const [formError, setFormError] = useState({ email: "", password: "" });
 
   const {login}=use(AuthContext)
 
   const validation = () => {
-    if (!form.email.includes("@")) {
-      setFormError({ ...formError, name: "please enter a valide email" });
-    }
-    if (!form.password.trim() || form.password.length < 6) {
-      setFormError({
-        ...formError,
-        name: "Password must be atleast 6 chareters",
-      });
-    }
-    return !formError.email && !formError.password;
-  };
+    setFormError({ email: "", password: "" });
+  let errors = { email: "", password: "" };
+
+  if (!form.email.includes("@")) {
+    errors.email = "Please enter a valid email";
+  }
+
+  if (!form.password.trim() || form.password.length < 6) {
+    errors.password = "Password must be at least 6 characters";
+  }
+
+  setFormError(errors);
+  return !errors.email && !errors.password;
+};
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -55,6 +56,9 @@ function Login() {
               placeholder="Enter your email"
               required
             />
+            {formError.email && (
+              <p className="text-red-600 text-sm mt-1">{formError.email}</p>
+            )}
           </div>
 
           <div>
@@ -70,6 +74,9 @@ function Login() {
               placeholder="Enter your password"
               required
             />
+            {formError.password && (
+              <p className="text-red-600 text-sm mt-1">{formError.password}</p>
+            )}
           </div>
 
           <button
