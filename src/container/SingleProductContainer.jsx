@@ -11,10 +11,36 @@ const SingleProductContainer = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  const addToCart = (productData) => {
+    const storedCart = localStorage.getItem("cart");
+    const cart = storedCart ? JSON.parse(storedCart) : [];
+    if (cart.find((pro) => pro.id === productData.id)) {
+      alert("Already added to the cart");
+      return;
+    }
+
+    
+    cart.push(productData);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    console.log(JSON.parse(localStorage.getItem("cart")));
+  };
+
+  const handleAddToCart = () => {
+    // ⭐️ PASS ONLY THE PRODUCT DATA (a plain JavaScript object)
+    addToCart(product);
+  };
+
   if (error) <ErrorComponent error={error} />;
   return (
     <div>
-      <SingleProductPresenter product={product} loading={loading} id={id} />
+      <SingleProductPresenter
+        product={product}
+        loading={loading}
+        id={id}
+        addToCart={handleAddToCart}
+      />
     </div>
   );
 };

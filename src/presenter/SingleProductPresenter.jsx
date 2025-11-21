@@ -4,7 +4,7 @@ import ProductImage from "../components/ProductImage";
 import { Link } from "react-router";
 import ProductRelated from "../components/ProductRelated";
 
-const SingleProductPresenter = ({ product, loading, id }) => {
+const SingleProductPresenter = ({ product, loading, id,addToCart }) => {
   return (
     <div className="p-6 mx-auto">
       {loading && <Loading data={"Product"} />}
@@ -14,7 +14,7 @@ const SingleProductPresenter = ({ product, loading, id }) => {
           <div className="space-y-4">
             <ProductImage img={product.images} />
 
-            <button
+            <button onClick={addToCart}
               className="w-full py-3 rounded-xl bg-amber-400 hover:bg-amber-500 
                    active:scale-95 font-semibold transition transform"
             >

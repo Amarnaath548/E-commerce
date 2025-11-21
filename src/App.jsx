@@ -8,6 +8,7 @@ import SearchResultCountainer from "./container/SearchResultCountainer";
 import { AuthContext } from "./context/AuthContext";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import CartContainer from "./container/CartContainer";
 
 const App = () => {
   const {user}=use(AuthContext)
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/products" element={user?<SearchResultCountainer />:<Navigate to='/login'/>} />
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={user?<Navigate to='/'/>:<Login/>}/>
+          <Route path="/cart" element={user?<CartContainer/>:<Navigate to='/login'/>} />
         </Routes>
       </main>
     </>

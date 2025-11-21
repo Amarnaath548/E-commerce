@@ -28,6 +28,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <img className="w-10 h-10 object-cover rounded-full border-2 border-white" src={user.avatar} alt="User Avatar" />
             <p className="text-white font-medium truncate max-w-[100px] hidden sm:block">{user.name}</p>
+            <Link className="px-3 py-2 text-sm border-2 border-stone-600 bg-stone-600 hover:bg-stone-700 rounded-lg text-white font-semibold transition duration-200" to='/cart'>Cart</Link>
             <button 
               onClick={logout} 
               className="px-3 py-2 text-sm border-2 border-red-600 bg-red-600 hover:bg-red-700 rounded-lg text-white font-semibold transition duration-200"
