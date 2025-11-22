@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CartPresenter from "../presenter/CartPresenter";
+import ErrorComponent from "../components/ErrorComponent";
 
 const CartContainer = () => {
   const [cart, setCart] = useState(() => {
@@ -31,6 +32,8 @@ const CartContainer = () => {
   };
 
   const total = calculateTotal();
+
+  if(cart.length===0) return <ErrorComponent error={"Please add products to your cart"} />
   return (
     <div>
       <CartPresenter
