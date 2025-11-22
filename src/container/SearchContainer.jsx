@@ -1,13 +1,10 @@
 import React, { useCallback, useState } from "react";
-// ... other imports ...
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
 import { useNavigate } from "react-router-dom";
 
 const SearchContainer = () => {
-  // ... state and handleSearch logic remains the same ...
-  // ... (omitted for brevity) ...
-
+  
   const [search, setSearch] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);

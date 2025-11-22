@@ -9,35 +9,35 @@ Users can **create an account**, **log in**, **browse products**, **search**, an
 ## 🚀 Features
 
 ### 👤 User Authentication
-- Create a new user using Platzi Fake Store API  
-- Login with email & password  
-- Receive an `access_token` for authentication  
+
+- Create a new user using Platzi Fake Store API
+- Login with email & password
+- Receive an `access_token` for authentication
 - Token is used for protected API calls
 
 ### 🛍 Product Browsing
-- View all products  
-- Search products by title  
+
+- View all products
+- Search products by title
 - Filter by:
   - **Category**
   - **Minimum price**
   - **Maximum price**
-
-### 🛒 Cart (Coming Soon)
-- Add to cart  
-- Remove from cart  
-- Persistent cart using **localStorage**  
+- Add to cart
+- Remove from cart
+- Persistent cart using **localStorage**
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | React, Vite, TailwindCSS |
-| Routing | react-router-dom |
-| API | Platzi Fake Store API |
-| State Management | React Hooks |
-| Upcoming | localStorage Cart |
+| Layer            | Technology               |
+| ---------------- | ------------------------ |
+| Frontend         | React, Vite, TailwindCSS |
+| Routing          | react-router-dom         |
+| API              | Platzi Fake Store API    |
+| State Management | React Hooks              |
+| Upcoming         | localStorage Cart        |
 
 ---
 
@@ -46,11 +46,9 @@ Users can **create an account**, **log in**, **browse products**, **search**, an
 This project integrates the official **Platzi Fake Store API**.  
 Used endpoints include:
 
-- `POST /users` – User registration  
-- `POST /auth/login` – Login & receive access token  
-- `GET /products` – Fetch all products  
-- `GET /categories` – Fetch categories  
+- `POST /users` – User registration
+- `POST /auth/login` – Login - receive access token & refresh token
+- `GET /products` – Fetch all products
+- `GET /categories` – Fetch categories
 
 ---
-
-

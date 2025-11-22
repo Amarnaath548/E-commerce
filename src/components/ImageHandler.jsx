@@ -12,8 +12,8 @@ const ImageHandler = ({ src, alt }) => {
   };
 
   return (
-    <img
-      className="w-full h-70 object-contain"
+    <img draggable={false}
+      className="w-full h-fit md:h-70 object-contain"
       src={imageError ? errImg : src}
       
       alt={alt}

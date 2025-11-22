@@ -14,21 +14,22 @@ const SingleProductContainer = () => {
 
   const addToCart = (productData) => {
     const storedCart = localStorage.getItem("cart");
+    
     const cart = storedCart ? JSON.parse(storedCart) : [];
+    
     if (cart.find((pro) => pro.id === productData.id)) {
       alert("Already added to the cart");
       return;
     }
 
-    
-    cart.push(productData);
+    const prod={...productData,quantity:1}
+    cart.push(prod);
     localStorage.setItem("cart", JSON.stringify(cart));
 
     console.log(JSON.parse(localStorage.getItem("cart")));
   };
 
   const handleAddToCart = () => {
-    // ⭐️ PASS ONLY THE PRODUCT DATA (a plain JavaScript object)
     addToCart(product);
   };
 
