@@ -6,23 +6,23 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const { user, logout } = use(AuthContext);
   return (
-    // Default: flex-col (mobile). md: flex-row (tablet/desktop)
+    
     <nav className="flex flex-col md:flex-row p-3 py-4 md:px-8 justify-between items-center bg-blue-500 shadow-lg gap-3">
       
-      {/* 1. Logo/Title Section (Always on the left) */}
+     
       <div className="flex items-center justify-center order-1">
-        {/* Added Link wrapper to make the logo clickable and return home (assuming / is home) */}
+        
         <Link to="/" className="text-2xl font-extrabold text-white hover:text-gray-100 transition duration-150">
           FACK STORE
         </Link>
       </div>
 
-      {/* 2. Search Bar Section (Center on desktop, full width on mobile) */}
-      <div className="w-full md:w-1/2 lg:w-1/3 order-3 md:order-2"> {/* Takes up 1/2 of md screen, 1/3 of lg screen */}
+      
+      <div className="w-full md:w-1/2 lg:w-1/3 order-3 md:order-2">
         <SearchContainer />
       </div>
 
-      {/* 3. User/Auth Links Section (Always on the right) */}
+      
       <div className="order-2 md:order-3">
         {user ? (
           <div className="flex items-center gap-3">

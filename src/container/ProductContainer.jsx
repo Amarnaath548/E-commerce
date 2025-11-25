@@ -3,7 +3,8 @@ import ErrorComponent from "../components/ErrorComponent";
 import usePaginationFetch from "../CustomHook/usePaginationFetch";
 
 const ProductContainer = () => {
-  const url = `https://api.escuelajs.co/api/v1/products?`;
+
+  const url = `${import.meta.env.VITE_BACKEND_URL}/products?`;
 
   const {
     products,
@@ -15,8 +16,8 @@ const ProductContainer = () => {
     currentPage,
     offset,
   } = usePaginationFetch(url);
-
-  if (error) return <ErrorComponent error={error} />;
+console.log(products)
+  if (error || products===null) return <ErrorComponent error={error || "products is null"} />;
 
   return (
     <ProductPresenter

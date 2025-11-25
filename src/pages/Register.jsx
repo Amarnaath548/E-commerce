@@ -34,7 +34,7 @@ function Register() {
   const register = async () => {
     try {
       const { data } = await axios.post(
-        "https://api.escuelajs.co/api/v1/users/",
+        `"${import.meta.env.VITE_BACKEND_URL}/auth/refresh-token"/users/`,
         form
       );
       console.log(data);

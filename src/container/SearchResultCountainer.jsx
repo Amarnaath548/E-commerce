@@ -9,7 +9,7 @@ const SearchResultCountainer = () => {
   console.log(location.search);
 
   const componentKey = location.search;
-  const url = `https://api.escuelajs.co/api/v1/products/${location.search}&`;
+  const url = `${import.meta.env.VITE_BACKEND_URL}/products/${location.search}&`;
 
   const SearchLogic = () => {
     const {

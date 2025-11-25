@@ -56,7 +56,7 @@ const SearchContainer = () => {
 
 
   return (
-    // Changed max-w-xl to w-full so it fills the width given by the Navbar parent
+    
     <div className="w-full mx-auto">
       <SearchBar
         search={search}
@@ -66,8 +66,7 @@ const SearchContainer = () => {
         showFilter={showFilter}
       />
       {showFilter && (
-        // Added mt-3 and md:absolute md:top-[60px] md:z-10 to position the filter popover correctly 
-        // under the search bar on desktop, while still stacking on mobile.
+       
         <div className="mt-3 md:absolute md:top-[60px] md:z-10">
             <Filter
                 minPrice={minPrice}

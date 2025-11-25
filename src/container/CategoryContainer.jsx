@@ -6,7 +6,9 @@ import ErrorComponent from "../components/ErrorComponent";
 function CategoryContainer() {
   const { id } = useParams();
 
-  const url = `https://api.escuelajs.co/api/v1/categories/${id}/products?`;
+  const url = `${import.meta.env.VITE_BACKEND_URL}/categories/${id}/products?`;
+
+  
   const {
     products,
     loading,

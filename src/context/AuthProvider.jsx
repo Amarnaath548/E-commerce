@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const baseUrl=import.meta.env.VITE_BACKEND_URL
 
   const login = async (credentail) => {
     const { data } = await axios.post(
-      "https://api.escuelajs.co/api/v1/auth/login",
+      `${baseUrl}/auth/login`,
       credentail
     );
     console.log(data);
@@ -31,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     const profile = async () => {
       try {
         const { data } = await axios.get(
-          "https://api.escuelajs.co/api/v1/auth/profile",
+          `${baseUrl}/auth/profile`,
           {
             headers: {
               Authorization: `Bearer ${access_token}`,
@@ -47,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     const token = async () => {
       try {
         const { data } = await axios.get(
-          "https://api.escuelajs.co/api/v1/auth/refresh-token",
+          `${baseUrl}/auth/refresh-token`,
           {
             headers: {
               Authorization: `Bearer ${refresh_token}`,

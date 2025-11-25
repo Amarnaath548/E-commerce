@@ -3,7 +3,7 @@ import Loading from './Loading'
 import ErrorComponent from './ErrorComponent'
 
 const FilterByCategory = ({categoryId,setCategoryId}) => {
-  const url="https://api.escuelajs.co/api/v1/categories"
+  const url=`${import.meta.env.VITE_BACKEND_URL}/categories`
     const { data:categories, loading, error}=useFetch(url)
 
     if(error) <ErrorComponent error={error}/>

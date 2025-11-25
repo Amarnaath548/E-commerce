@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 const SingleProductContainer = () => {
   const { id } = useParams();
-  const url = `https://api.escuelajs.co/api/v1/products/${id}`;
+  const url = `${import.meta.env.VITE_BACKEND_URL}/products/${id}`;
   const { data: product, loading, error } = useFetch(url);
   useEffect(() => {
     window.scrollTo(0, 0);
