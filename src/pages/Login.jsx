@@ -1,5 +1,5 @@
 
-import React, { use, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
@@ -10,7 +10,7 @@ function Login() {
   });
   const [formError, setFormError] = useState({ email: "", password: "" });
 
-  const {login}=use(AuthContext)
+  const {login}=useContext(AuthContext)
 
   const validation = () => {
     setFormError({ email: "", password: "" });
